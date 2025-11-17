@@ -5,7 +5,16 @@ return {
   },
   config = function()
     require('claude-code').setup {
-      position = 'vertical',
+      keymaps = {
+        toggle = {
+          normal = '<leader>cc',
+          terminal = false,
+        },
+      },
+      window = {
+        position = 'vertical',  -- Opens as a side split
+        split_ratio = 0.3,      -- 30% of screen width
+      },
     }
   end,
 }
