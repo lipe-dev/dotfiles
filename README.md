@@ -1,4 +1,15 @@
 # dotfiles
+This is just a repo with my archlinux/mac stuff that I need for work.
+I like keeping stuff as close to default as I can, so I only do minimal changes.
+
+- Change shell to ZSH + Oh My Zsh
+- Install basic tools like git and ssh
+- Install nvim + modular kickstart + a few of my own configs
+- Create some SSH creds for github and such
+
+This repo can be cloned anywhere in my machine and uses simlinks to place the correct files in the correct places from there.
+
+I am pretty much sold on Omarchy now, so this is basically all the setup I need.
 
 ## Install stuff
 
