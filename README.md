@@ -22,6 +22,7 @@ pacman -S openssh
 pacman -S zsh
 pacman -S unzip
 pacman -S elixir
+pacman -S ripgrep
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
 sudo rm -rf /opt/nvim-linux-x86_64
