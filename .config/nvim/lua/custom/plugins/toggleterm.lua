@@ -4,6 +4,7 @@ return {
     version = '*',
     config = function()
       require('toggleterm').setup {
+        start_in_insert = true,
         size = 20,
         open_mapping = [[<c-\>]],
         direction = 'float',
