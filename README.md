@@ -40,6 +40,39 @@ curl -fsSL https://claude.ai/install.sh | bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
+## Windows Setup
+
+**Note:** Run PowerShell as Administrator for symlink creation
+
+```powershell
+# Install Chocolatey
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+
+# Install basic tools
+winget install Git.Git
+winget install Neovim.Neovim
+choco install autohotkey
+choco install glazewm
+
+# Disable iCUE Windows key remap if you had it enabled
+```
+
+## GlazeWM setup (Windows Only)
+
+```powershell
+# Run as Administrator
+mkdir -p "$env:USERPROFILE\.glzr\glazewm"
+mklink "$env:USERPROFILE\.glzr\glazewm\config.yaml" "$PWD\.glzr\glazewm\config.yaml"
+```
+
+## AutoHotkey setup (Windows Only)
+
+```powershell
+# Run as Administrator
+mkdir -p "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup"
+mklink "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\winmarchy.ahk" "$PWD\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\winmarchy.ahk"
+```
+
 ## Arch Setup
 
 ```bash
