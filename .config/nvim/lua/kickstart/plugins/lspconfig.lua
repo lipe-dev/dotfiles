@@ -220,6 +220,13 @@ return {
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         -- ts_ls = {},
         --
+        css_variables = {},
+        cssls = {},
+        eslint = {},
+        html = {},
+        tailwindcss = {},
+        ts_ls = {},
+        taplo = {},
 
         lua_ls = {
           -- cmd = { ... },
