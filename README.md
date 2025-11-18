@@ -77,6 +77,7 @@ mklink "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\winmarchy.ahk
 
 ```powershell
 # Run as Administrator
+Remove-Item -Path "$env:LOCALAPPDATA\nvim" -Recurse -Force -ErrorAction SilentlyContinue
 New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\nvim" -Target "$PWD\.config\nvim"
 ```
 
