@@ -17,12 +17,12 @@ if not (A_IsAdmin or RegExMatch(full_command_line, " /restart(?!\S)")) {
 LWin::return
 
 ; LWin+Space to open Start Menu (sends RWin)
-LWin & Space::Send "{RWin}"
+#Space::Send "{RWin}"
 
 ; Clipboard operations with LWin
-LWin & c::Send "^c"
-LWin & x::Send "^x"
-LWin & v::Send "^v"
+#c::Send "^c"
+#x::Send "^x"
+#v::Send "^v"
 
 ; Terminal (no shift)
 #Enter::
@@ -31,14 +31,14 @@ LWin & v::Send "^v"
 }
 
 ; App launching with LWin+Shift
-+LWin & b::Run "C:\Users\lipe\AppData\Local\BraveSoftware\Brave-Browser\Application\brave.exe"
-LWin & Escape::Shutdown 1
-+LWin & f::Run "explorer.exe"
-+LWin & t::Run "taskmgr.exe"
-+LWin & SC027::Run "C:\Users\lipe\AppData\Local\Programs\Bitwarden\Bitwarden.exe"  ; semicolon
-+LWin & n::Run "wt.exe -p archlinux -- nvim"
-+LWin & a::Run "https://chatgpt.com/"
-+LWin & g::Run "C:\Users\lipe\AppData\Local\Discord\app-1.0.9212\Discord.exe"
-+LWin & ^g::Run "https://web.whatsapp.com/"
-+LWin & w::Run "powershell.exe -NoExit -Command iwr -useb https://christitus.com/win | iex"
-+LWin & r::Reload
+#+b::Run "C:\Users\lipe\AppData\Local\BraveSoftware\Brave-Browser\Application\brave.exe"
+#Escape::Shutdown 1
+#+f::Run "explorer.exe"
+#+t::Run "taskmgr.exe"
+#+SC027::Run "C:\Users\lipe\AppData\Local\Programs\Bitwarden\Bitwarden.exe"  ; semicolon
+#+n::Run "wt.exe -p archlinux -- nvim"
+#+a::Run "https://chatgpt.com/"
+#+g::Run "C:\Users\lipe\AppData\Local\Discord\app-1.0.9212\Discord.exe"
+#^g::Run "https://web.whatsapp.com/"
+#+w::Run "powershell.exe -NoExit -Command iwr -useb https://christitus.com/win | iex"
+#+r::Reload
