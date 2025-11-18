@@ -89,7 +89,7 @@ ln -sf "$(pwd)/.wezterm.lua" ~/.wezterm.lua
 
 ## ZSH setup
 
-```shell
+```bash
 chsh -s $(which zsh)
 rm ~/.zshrc
 ln -sf "$(pwd)/.zshrc" ~/.zshrc
@@ -97,18 +97,26 @@ ln -sf "$(pwd)/.zshrc" ~/.zshrc
 
 ## SSH setup
 
-```shell
+```bash
 ssh-keygen -t rsa -C "fe@lipe.dev"
+
+# Mac only
+mkdir -p ~/.ssh
+ln -sf "$(pwd)/.ssh/config" ~/.ssh/config
+ssh-add --apple-use-keychain ~/.ssh/id_rsa
+
+# Arch only
 mkdir -p ~/.config/systemd/user
 ln -sf "$(pwd)/.config/systemd/user/ssh-agent.service" ~/.config/systemd/user/ssh-agent.service
 systemctl --user enable --now ssh-agent
 ssh-add
+
 cat ~/.ssh/id_rsa.pub
 ```
 
 ## NVIM setup
 
-```shell
+```bash
 cargo install --features lsp --locked taplo-cli
 rm -rf ~/.config/nvim
 ln -s "$(pwd)/.config/nvim" ~/.config/nvim
