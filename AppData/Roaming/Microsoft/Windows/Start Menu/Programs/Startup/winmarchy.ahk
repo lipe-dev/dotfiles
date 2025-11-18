@@ -25,7 +25,10 @@ LWin & x::Send "^x"
 LWin & v::Send "^v"
 
 ; Terminal (no shift)
-LWin & Enter::Run("wt.exe")
+LWin & Enter::
+{
+    Run "wt.exe"
+}
 
 ; App launching with LWin+Shift
 +LWin & b::Run "C:\Users\lipe\AppData\Local\BraveSoftware\Brave-Browser\Application\brave.exe"
