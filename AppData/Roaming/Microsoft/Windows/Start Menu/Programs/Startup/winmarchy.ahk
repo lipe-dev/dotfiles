@@ -13,9 +13,6 @@ if not (A_IsAdmin or RegExMatch(full_command_line, " /restart(?!\S)")) {
     ExitApp
 }
 
-; Disable LWin from sending Win key normally
-LWin::return
-
 ; LWin+Space to open Start Menu (sends RWin)
 #Space::Send "{RWin}"
 
