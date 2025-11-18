@@ -25,7 +25,7 @@ LWin & x::Send "^x"
 LWin & v::Send "^v"
 
 ; Terminal (no shift)
-LWin & Return::
+#Enter::
 {
     Run "wt.exe"
 }
