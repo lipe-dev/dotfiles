@@ -73,6 +73,13 @@ mkdir -p "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup"
 mklink "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\winmarchy.ahk" "$PWD\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\winmarchy.ahk"
 ```
 
+## Neovim setup (Windows Only)
+
+```powershell
+# Run as Administrator
+New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\nvim" -Target "$PWD\.config\nvim"
+```
+
 ## Arch Setup
 
 ```bash
