@@ -1,9 +1,6 @@
 #Requires AutoHotkey v2.0
 #SingleInstance Force
 
-#Requires AutoHotkey v2.0
-
-#SingleInstance Force
 full_command_line := DllCall("GetCommandLine", "str")
 if not (A_IsAdmin or RegExMatch(full_command_line, " /restart(?!\S)")) {
     try
@@ -16,17 +13,29 @@ if not (A_IsAdmin or RegExMatch(full_command_line, " /restart(?!\S)")) {
     ExitApp
 }
 
-#HotIf GetKeyState("F13")
-+b:: Run "C:\Users\lipe\AppData\Local\BraveSoftware\Brave-Browser\Application\brave.exe"
-Space:: Send "{LWin}"
-Escape:: Shutdown 1
-+F:: Run "explorer.exe"
-+T:: Run "taskmgr.exe"
-Enter:: Run "wt.exe"
-+;:: Run "C:\Users\lipe\AppData\Local\Programs\Bitwarden\Bitwarden.exe"
-+N:: Run "C:\Users\lipe\AppData\Local\Programs\Microsoft VS Code\Code.exe"
-+A:: Run "https://chatgpt.com/"
-+G:: Run "C:\Users\lipe\AppData\Local\Discord\app-1.0.9212\Discord.exe"
-+^G:: Run "https://web.whatsapp.com/"
-+W:: Run "powershell.exe -NoExit -Command iwr -useb https://christitus.com/win | iex"
-+R:: Reload
+; Disable LWin from sending Win key normally
+LWin::return
+
+; LWin+Space to open Start Menu (sends RWin)
+LWin & Space::Send "{RWin}"
+
+; Clipboard operations with LWin
+LWin & c::Send "^c"
+LWin & x::Send "^x"
+LWin & v::Send "^v"
+
+; Terminal (no shift)
+LWin & Enter::Run "wt.exe"
+
+; App launching with LWin+Shift
++LWin & b::Run "C:\Users\lipe\AppData\Local\BraveSoftware\Brave-Browser\Application\brave.exe"
+LWin & Escape::Shutdown 1
++LWin & f::Run "explorer.exe"
++LWin & t::Run "taskmgr.exe"
++LWin & SC027::Run "C:\Users\lipe\AppData\Local\Programs\Bitwarden\Bitwarden.exe"  ; semicolon
++LWin & n::Run "wt.exe -p archlinux -- nvim"
++LWin & a::Run "https://chatgpt.com/"
++LWin & g::Run "C:\Users\lipe\AppData\Local\Discord\app-1.0.9212\Discord.exe"
++LWin & ^g::Run "https://web.whatsapp.com/"
++LWin & w::Run "powershell.exe -NoExit -Command iwr -useb https://christitus.com/win | iex"
++LWin & r::Reload
