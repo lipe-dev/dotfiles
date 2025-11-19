@@ -37,6 +37,34 @@ vim.keymap.set('n', '<leader>k', '<cmd>m .-2<CR>==zv', { desc = 'Move line up' }
 vim.keymap.set('v', '<leader>j', ":m '>+1<CR>gv=gv", { desc = 'Move selection down' })
 vim.keymap.set('v', '<leader>k', ":m '<-2<CR>gv=gv", { desc = 'Move selection up' })
 
+-- Arrange 3 vertical splits in 1:3:2 ratio
+vim.keymap.set('n', '<leader>wl', function()
+  local total_width = vim.o.columns
+  local win_count = vim.fn.winnr '$'
+
+  if win_count ~= 3 then
+    print 'This layout requires exactly 3 windows'
+    return
+  end
+
+  -- Calculate widths: 1:3:2 ratio
+  local width1 = math.floor(total_width * 1 / 6)
+  local width2 = math.floor(total_width * 3 / 6)
+  local width3 = math.floor(total_width * 2 / 6)
+
+  -- Go to first window and resize
+  vim.cmd '1wincmd w'
+  vim.cmd('vertical resize ' .. width1)
+
+  -- Go to second window and resize
+  vim.cmd '2wincmd w'
+  vim.cmd('vertical resize ' .. width2)
+
+  -- Go to third window and resize
+  vim.cmd '3wincmd w'
+  vim.cmd('vertical resize ' .. width3)
+end, { desc = 'Arrange windows in 1:3:2 ratio' })
+
 -- NOTE: Some terminals have colliding keymaps or are not able to send distinct keycodes
 -- vim.keymap.set("n", "<C-S-h>", "<C-w>H", { desc = "Move window to the left" })
 -- vim.keymap.set("n", "<C-S-l>", "<C-w>L", { desc = "Move window to the right" })
