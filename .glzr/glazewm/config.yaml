@@ -120,15 +120,12 @@ window_behavior:
       shown_on_top: false
 
 workspaces:
-  - name: 'Personal'
-  - name: 'Work'
+  - name: 'Dev'
+  - name: 'Testing'
+  - name: 'Docs'
+  - name: 'Media'
   - name: 'Gaming'
   - name: 'OBS'
-  - name: 'Learning'
-  - name: '6'
-  - name: '7'
-  - name: '8'
-  - name: '9'
 
 window_rules:
   - commands: ['ignore']
@@ -265,24 +262,18 @@ keybindings:
     bindings: ['super+ctrl+tab']
 
   # Change focus to a workspace defined in `workspaces` config.
-  - commands: ['focus --workspace Personal']
+  - commands: ['focus --workspace Dev']
     bindings: ['alt+1']
-  - commands: ['focus --workspace Work']
+  - commands: ['focus --workspace Testing']
     bindings: ['alt+2']
-  - commands: ['focus --workspace Gaming']
+  - commands: ['focus --workspace Docs']
     bindings: ['alt+3']
-  - commands: ['focus --workspace OBS']
+  - commands: ['focus --workspace Media']
     bindings: ['alt+4']
-  - commands: ['focus --workspace Learning']
+  - commands: ['focus --workspace Gaming']
     bindings: ['alt+5']
-  - commands: ['focus --workspace 6']
+  - commands: ['focus --workspace OBS']
     bindings: ['alt+6']
-  - commands: ['focus --workspace 7']
-    bindings: ['alt+7']
-  - commands: ['focus --workspace 8']
-    bindings: ['alt+8']
-  - commands: ['focus --workspace 9']
-    bindings: ['alt+9']
 
   # Move the focused window's parent workspace to a monitor in a given
   # direction.
@@ -296,22 +287,16 @@ keybindings:
     bindings: ['alt+shift+s']
 
   # Move focused window to a workspace defined in `workspaces` config.
-  - commands: ['move --workspace Personal', 'focus --workspace Personal']
+  - commands: ['move --workspace Dev', 'focus --workspace Dev']
     bindings: ['alt+shift+1']
-  - commands: ['move --workspace Work', 'focus --workspace Work']
+  - commands: ['move --workspace Testing', 'focus --workspace Testing']
     bindings: ['alt+shift+2']
-  - commands: ['move --workspace Gaming', 'focus --workspace Gaming']
+  - commands: ['move --workspace Docs', 'focus --workspace Docs']
     bindings: ['alt+shift+3']
-  - commands: ['move --workspace OBS', 'focus --workspace OBS']
+  - commands: ['move --workspace Media', 'focus --workspace Media']
     bindings: ['alt+shift+4']
-  - commands: ['move --workspace Learning', 'focus --workspace Learning']
+  - commands: ['move --workspace Gaming', 'focus --workspace Gaming']
     bindings: ['alt+shift+5']
-  - commands: ['move --workspace 6', 'focus --workspace 6']
+  - commands: ['move --workspace OBS', 'focus --workspace OBS']
     bindings: ['alt+shift+6']
-  - commands: ['move --workspace 7', 'focus --workspace 7']
-    bindings: ['alt+shift+7']
-  - commands: ['move --workspace 8', 'focus --workspace 8']
-    bindings: ['alt+shift+8']
-  - commands: ['move --workspace 9', 'focus --workspace 9']
-    bindings: ['alt+shift+9']
 
