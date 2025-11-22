@@ -33,7 +33,7 @@ if not (A_IsAdmin or RegExMatch(full_command_line, " /restart(?!\S)")) {
 #+f::Run "explorer.exe"
 #+t::Run "taskmgr.exe"
 #+SC027::Run "C:\Users\lipe\AppData\Local\Programs\Bitwarden\Bitwarden.exe"  ; semicolon
-#+n::Run "wt.exe -p archlinux -d ~ nvim"
+#+n::Run "wt.exe -p archlinux -- nvim"
 #+a::Run "https://chatgpt.com/"
 #+g::Run "C:\Users\lipe\AppData\Local\Discord\app-1.0.9212\Discord.exe"
 #^g::Run "https://web.whatsapp.com/"
