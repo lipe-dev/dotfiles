@@ -148,16 +148,18 @@ alt-1 = 'workspace Dev'
 alt-2 = 'workspace Testing'
 alt-3 = 'workspace Docs'
 alt-4 = 'workspace Media'
-alt-5 = 'workspace Gaming'
-alt-6 = 'workspace OBS'
+alt-5 = 'workspace Comms'
+alt-6 = 'workspace Gaming'
+alt-7 = 'workspace OBS'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-1 = 'move-node-to-workspace Dev'
 alt-shift-2 = 'move-node-to-workspace Testing'
 alt-shift-3 = 'move-node-to-workspace Docs'
 alt-shift-4 = 'move-node-to-workspace Media'
-alt-shift-5 = 'move-node-to-workspace Gaming'
-alt-shift-6 = 'move-node-to-workspace OBS'
+alt-shift-5 = 'move-node-to-workspace Comms'
+alt-shift-6 = 'move-node-to-workspace Gaming'
+alt-shift-7 = 'move-node-to-workspace OBS'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = 'workspace-back-and-forth'

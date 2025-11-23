@@ -124,6 +124,7 @@ workspaces:
   - name: 'Testing'
   - name: 'Docs'
   - name: 'Media'
+  - name: 'Comms'
   - name: 'Gaming'
   - name: 'OBS'
 
@@ -270,10 +271,12 @@ keybindings:
     bindings: ['alt+3']
   - commands: ['focus --workspace Media']
     bindings: ['alt+4']
-  - commands: ['focus --workspace Gaming']
+  - commands: ['focus --workspace Comms']
     bindings: ['alt+5']
-  - commands: ['focus --workspace OBS']
+  - commands: ['focus --workspace Gaming']
     bindings: ['alt+6']
+  - commands: ['focus --workspace OBS']
+    bindings: ['alt+7']
 
   # Move the focused window's parent workspace to a monitor in a given
   # direction.
@@ -295,8 +298,10 @@ keybindings:
     bindings: ['alt+shift+3']
   - commands: ['move --workspace Media', 'focus --workspace Media']
     bindings: ['alt+shift+4']
-  - commands: ['move --workspace Gaming', 'focus --workspace Gaming']
+  - commands: ['move --workspace Comms', 'focus --workspace Comms']
     bindings: ['alt+shift+5']
-  - commands: ['move --workspace OBS', 'focus --workspace OBS']
+  - commands: ['move --workspace Gaming', 'focus --workspace Gaming']
     bindings: ['alt+shift+6']
+  - commands: ['move --workspace OBS', 'focus --workspace OBS']
+    bindings: ['alt+shift+7']
 
