@@ -61,16 +61,16 @@ choco install glazewm
 
 ```powershell
 # Run as Administrator
-mkdir -p "$env:USERPROFILE\.glzr\glazewm"
-mklink "$env:USERPROFILE\.glzr\glazewm\config.yaml" "$PWD\.glzr\glazewm\config.yaml"
+New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.glzr\glazewm"
+New-Item -ItemType SymbolicLink -Path "$env:USERPROFILE\.glzr\glazewm\config.yaml" -Target "$PWD\.glzr\glazewm\config.yaml"
 ```
 
 ## AutoHotkey setup (Windows Only)
 
 ```powershell
 # Run as Administrator
-mkdir -p "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup"
-mklink "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\winmarchy.ahk" "$PWD\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\winmarchy.ahk"
+New-Item -ItemType Directory -Force -Path "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup"
+New-Item -ItemType SymbolicLink -Path "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\winmarchy.ahk" -Target "$PWD\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\winmarchy.ahk"
 ```
 
 ## Arch Setup
