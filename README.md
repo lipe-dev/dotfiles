@@ -1,17 +1,6 @@
 # dotfiles
 
-This is just a repo with my archlinux/mac stuff that I need for work.
-I like keeping stuff as close to default as I can, so I only do minimal changes.
-
-- Change shell to ZSH + Oh My Zsh
-- Install basic tools like git and ssh
-- Install nvim + modular kickstart + a few of my own configs
-- Create some SSH creds for github and such
-
-This repo can be cloned anywhere in my machine and uses simlinks to place
-the correct files in the correct places from there.
-
-I am pretty much sold on Omarchy now, so this is basically all the setup I need.
+Minimal configs for Mac, Windows, and Linux (WSL Ubuntu).
 
 ## Mac Setup
 
@@ -29,7 +18,7 @@ brew install neovim
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # nvm
-ln -sf "$(pwd)/default-packages" $NVM_DIR/default-packages
+ln -sf "$(pwd)/linux/default-packages" $NVM_DIR/default-packages
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 nvm install --lts
 
@@ -40,9 +29,22 @@ curl -fsSL https://claude.ai/install.sh | bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
+## Mac Symlinks
+
+```bash
+ln -sf "$(pwd)/mac/.aerospace.toml" ~/.aerospace.toml
+ln -sf "$(pwd)/mac/.wezterm.lua" ~/.wezterm.lua
+ln -sf "$(pwd)/mac/.zshrc" ~/.zshrc
+mkdir -p ~/.ssh
+ln -sf "$(pwd)/mac/.ssh/config" ~/.ssh/config
+cargo install --features lsp --locked taplo-cli
+rm -rf ~/.config/nvim
+ln -sf "$(pwd)/mac/.config/nvim" ~/.config/nvim
+```
+
 ## Windows Setup
 
-**Note:** Run PowerShell as Administrator for symlink creation
+**Note:** Run PowerShell as Administrator for symlink creation.
 
 ```powershell
 # Install Chocolatey
@@ -53,45 +55,38 @@ winget install Git.Git
 winget install Neovim.Neovim
 choco install autohotkey
 choco install glazewm
-
-# Disable iCUE Windows key remap if you had it enabled
 ```
 
-## GlazeWM setup (Windows Only)
+## Windows Symlinks
 
 ```powershell
-# Run as Administrator
+# GlazeWM
 New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.glzr\glazewm"
-New-Item -ItemType SymbolicLink -Path "$env:USERPROFILE\.glzr\glazewm\config.yaml" -Target "$PWD\.glzr\glazewm\config.yaml"
-```
+New-Item -ItemType SymbolicLink -Path "$env:USERPROFILE\.glzr\glazewm\config.yaml" -Target "$PWD\windows\.glzr\glazewm\config.yaml"
 
-## AutoHotkey setup (Windows Only)
-
-```powershell
-# Run as Administrator
+# AutoHotkey
 New-Item -ItemType Directory -Force -Path "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup"
-New-Item -ItemType SymbolicLink -Path "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\winmarchy.ahk" -Target "$PWD\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\winmarchy.ahk"
+New-Item -ItemType SymbolicLink -Path "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\winmarchy.ahk" -Target "$PWD\windows\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\winmarchy.ahk"
 ```
 
-## Arch Setup
+## WSL Ubuntu Setup
 
 ```bash
-
 # basic apps
-pacman -S git
-pacman -S openssh
-pacman -S zsh
-pacman -S unzip
-pacman -S gcc
-pacman -S elixir
-pacman -S ripgrep
-pacman -S neovim
+sudo apt update
+sudo apt install -y git zsh unzip gcc ripgrep
+
+# nvim (latest binary)
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+sudo rm -rf /opt/nvim-linux-x86_64
+sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
+rm nvim-linux-x86_64.tar.gz
 
 # oh my zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # nvm
-ln -sf "$(pwd)/default-packages" $NVM_DIR/default-packages
+ln -sf "$(pwd)/linux/default-packages" $NVM_DIR/default-packages
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 nvm install --lts
 
@@ -102,55 +97,20 @@ curl -fsSL https://claude.ai/install.sh | bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
-## Aerospace setup (Mac Only)
-
-```bash
-ln -sf "$(pwd)/.aerospace.toml" ~/.aerospace.toml
-```
-
-## Hyprland setup (Arch Only)
-
-```bash
-
-```
-
-## WezTerm setup
-
-```bash
-ln -sf "$(pwd)/.wezterm.lua" ~/.wezterm.lua
-```
-
-## ZSH setup
+## WSL Ubuntu Symlinks
 
 ```bash
 chsh -s $(which zsh)
 rm ~/.zshrc
-ln -sf "$(pwd)/.zshrc" ~/.zshrc
-```
-
-## SSH setup
-
-```bash
-ssh-keygen -t rsa -C "fe@lipe.dev"
-
-# Mac only
+ln -sf "$(pwd)/linux/.zshrc" ~/.zshrc
+ln -sf "$(pwd)/linux/.wezterm.lua" ~/.wezterm.lua
 mkdir -p ~/.ssh
-ln -sf "$(pwd)/.ssh/config" ~/.ssh/config
-ssh-add --apple-use-keychain ~/.ssh/id_rsa
-
-# Arch only
+ln -sf "$(pwd)/linux/.ssh/config" ~/.ssh/config
 mkdir -p ~/.config/systemd/user
-ln -sf "$(pwd)/.config/systemd/user/ssh-agent.service" ~/.config/systemd/user/ssh-agent.service
+ln -sf "$(pwd)/linux/.config/systemd/user/ssh-agent.service" ~/.config/systemd/user/ssh-agent.service
 systemctl --user enable --now ssh-agent
 ssh-add
-
-cat ~/.ssh/id_rsa.pub
-```
-
-## NVIM setup
-
-```bash
 cargo install --features lsp --locked taplo-cli
 rm -rf ~/.config/nvim
-ln -s "$(pwd)/.config/nvim" ~/.config/nvim
+ln -sf "$(pwd)/linux/.config/nvim" ~/.config/nvim
 ```
