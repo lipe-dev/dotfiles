@@ -24,7 +24,7 @@ New-Item -ItemType SymbolicLink -Force -Path "$env:USERPROFILE\.glzr\glazewm\con
   -Target "$DOTFILES\windows\.glzr\glazewm\config.yaml"
 
 New-Item -ItemType Directory -Force -Path "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup" | Out-Null
-New-Item -ItemType SymbolicLink -Force -Path "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\winmarchy.ahk" `
-  -Target "$DOTFILES\windows\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\winmarchy.ahk"
+New-Item -ItemType SymbolicLink -Force -Path "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\hotkeys.ahk" `
+  -Target "$DOTFILES\windows\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\hotkeys.ahk"
 
 Write-Host "==> done."
