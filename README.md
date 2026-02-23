@@ -86,7 +86,7 @@ rm nvim-linux-x86_64.tar.gz
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # nvm
-ln -sf "$(pwd)/linux/default-packages" $NVM_DIR/default-packages
+ln -sf "$(pwd)/linux/default-packages" ~/.nvm/default-packages
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 nvm install --lts
 
@@ -103,12 +103,9 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 chsh -s $(which zsh)
 rm ~/.zshrc
 ln -sf "$(pwd)/linux/.zshrc" ~/.zshrc
-mkdir -p ~/.ssh
-ln -sf "$(pwd)/linux/.ssh/config" ~/.ssh/config
 mkdir -p ~/.config/systemd/user
 ln -sf "$(pwd)/linux/.config/systemd/user/ssh-agent.service" ~/.config/systemd/user/ssh-agent.service
 systemctl --user enable --now ssh-agent
-ssh-add
 cargo install --features lsp --locked taplo-cli
 rm -rf ~/.config/nvim
 ln -sf "$(pwd)/linux/.config/nvim" ~/.config/nvim
