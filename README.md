@@ -103,7 +103,6 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 chsh -s $(which zsh)
 rm ~/.zshrc
 ln -sf "$(pwd)/linux/.zshrc" ~/.zshrc
-ln -sf "$(pwd)/linux/.wezterm.lua" ~/.wezterm.lua
 mkdir -p ~/.ssh
 ln -sf "$(pwd)/linux/.ssh/config" ~/.ssh/config
 mkdir -p ~/.config/systemd/user
