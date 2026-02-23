@@ -14,7 +14,6 @@ Write-Host "==> packages"
 winget install Git.Git
 winget install GitHub.cli
 choco install autohotkey -y
-choco install glazewm -y
 
 Write-Host "==> gh auth"
 gh auth login
